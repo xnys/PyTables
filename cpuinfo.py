@@ -1286,7 +1286,7 @@ def _get_cpu_info_from_cpuid():
 	try:
 		# Start running the function in a subprocess
 		queue = Queue()
-		p = Process(target=_actual_get_cpu_info_from_cpuid, args=(queue,))
+		p = Process(target=_actual_get_cpu_info_from_cpuid, args=(queue))
 		p.start()
 
 		# Wait for the process to end, while it is still alive
