@@ -58,7 +58,7 @@ int getLibrary(const char*libname) {
    utilsExtension.pyx because UNIX does not complain when trying to
    load an extension library that depends on a shared library that it
    is not in the system (python raises just the ImportError). */
-int getLibrary(char *libname) {
+int getLibrary(const char *libname) {
     void *hinstLib;
 
     /* Load the dynamic library */
