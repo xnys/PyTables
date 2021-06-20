@@ -71,7 +71,7 @@
     H5Eclear(H5E_DEFAULT);                                                               \
 } while(0)
 
-int getLibrary(char *libname);
+int getLibrary(const char *libname);
 
 herr_t set_cache_size(hid_t file_id, size_t cache_size);
 
