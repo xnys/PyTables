@@ -27,11 +27,18 @@ typedef npy_cdouble npy_complex256;
    loaded on Windows. This is only way to detect its presence without
    harming the user.
 */
-int getLibrary(char *libname) {
+int getLibrary(const char*libname) {
     HINSTANCE hinstLib;
 
     /* Load the dynamic library */
-    hinstLib = LoadLibrary(TEXT(libname));
+#ifdef  UNICODE
+    wchar_t name[256] = { 0 };
+    //auto len = mbstowcs(name, libname, MB_CUR_MAX);
+    ::MultiByteToWideChar(CP_OEMCP, 0, libname, -1, name, 256);
+#else
+    const char* name = libname;
+#endif
+    hinstLib = LoadLibrary(name);
 
     if (hinstLib != NULL) {
       /* Free the dynamic library */
