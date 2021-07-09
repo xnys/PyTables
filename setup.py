@@ -367,7 +367,7 @@ if __name__ == "__main__":
             # methods.)
             return _find_file_path(
                 self.runtime_name,
-                default_runtime_dirs,
+                locations,
                 self._runtime_prefixes,
                 self._runtime_suffixes,
             )
